@@ -23,7 +23,7 @@ return [
         'shop' => 'Shop',
         'story' => 'Story',
         'our_roots' => 'Our Roots, Your Health',
-        'mission_text' => 'This is not just a business—it's a mission.',
+        'mission_text' => 'This is not just a business—it\'s a mission.',
         'name' => 'Name',
         'email' => 'Email',
         'phone' => 'Phone',
