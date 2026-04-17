@@ -1,386 +1,216 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gir Organic | Premium Mushroom Wellness from Chaparda</title>
-    <script defer src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="preload" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --chocolate: #3d241c;
-            --forest: #14532d;
-            --gold: #d97706;
-        }
-        body { font-family: 'Outfit', sans-serif; }
-        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
-        
-        .glass {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        
-        html, body {
-            min-height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gir Organic | Premium Mushroom</title>
 
-        .bg-pattern {
-            background-color: #fefce8;
-            background-image: radial-gradient(circle at 10% 10%, rgba(20, 83, 45, 0.05) 0.5px, transparent 0.5px);
-            background-size: 60px 60px;
-        }
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        .gradient-text {
-            background: linear-gradient(to right, #3d241c, #14532d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --forest: #14532d;
+    --gold: #d97706;
+    --chocolate: #3d241c;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: #fefce8;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Glass effect */
+.glass {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+}
+
+/* Navbar */
+.navbar-custom {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    background: url('images/story.jpeg') center/cover no-repeat;
+    position: relative;
+    color: white;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.3));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Buttons */
+.btn-forest {
+    background: var(--forest);
+    color: white;
+    border-radius: 12px;
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: white;
+    border-radius: 12px;
+}
+
+/* Cards */
+.product-card {
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+}
+
+.product-img {
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.product-img img {
+    transition: 0.5s;
+}
+
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+    background: #1c1917;
+    color: white;
+}
+</style>
 </head>
-<body class="bg-pattern text-stone-900">
 
-    <!-- Premium Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 py-4" id="main-nav">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="glass border border-white/20 rounded-2xl px-6 py-3 flex justify-between items-center shadow-2xl">
-                <div class="flex items-center gap-3">
-                    <img src="images/GIR.png" alt="Gir Organic logo" class="h-12 w-auto object-contain rounded-xl shadow-sm bg-white/80 p-1">
-                    <span class="text-xl font-bold tracking-tighter text-stone-800">GIR <span class="text-forest">ORGANIC</span></span>
-                </div>
-                
-                <div class="hidden md:flex space-x-10 font-semibold text-stone-600">
-                    <a href="#home" class="hover:text-forest transition" data-key="nav-home">Home</a>
-                    <a href="#about" class="hover:text-forest transition" data-key="nav-about">About Us</a>
-                    <a href="#products" class="hover:text-forest transition" data-key="nav-shop">Products</a>
-                    <a href="#benefits" class="hover:text-forest transition" data-key="nav-benefits">Commitment</a>
-                </div>
+<body>
 
-                <div class="flex items-center gap-4">
-                    <button id="lang-toggle" onclick="toggleLanguage()" class="flex items-center gap-2 px-4 py-2 rounded-xl border border-stone-200 hover:bg-stone-100 transition font-bold text-stone-700">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 11.37 9.19 15.378 6 17.633"></path></svg>
-                        <span id="current-lang">English</span>
-                    </button>
-                    <button onclick="location.href='https://wa.me/910000000000'" class="bg-forest text-white px-7 py-2.5 rounded-xl font-bold hover:shadow-xl hover:-translate-y-0.5 transition-all" data-key="btn-order">Order Now</button>
-                </div>
-            </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom py-3">
+<div class="container">
+    <div class="glass p-2 d-flex w-100 justify-content-between align-items-center">
+
+        <div class="d-flex align-items-center">
+            <img src="images/GIR.png" height="45">
+            <strong class="ms-2">GIR ORGANIC</strong>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="images/story.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Mushroom Forest">
-            <div class="absolute inset-0 bg-gradient-to-r from-stone-900/80 via-stone-900/40 to-transparent"></div>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            ☰
+        </button>
+
+        <div id="menu" class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav gap-4">
+                <li><a class="nav-link" href="#home">Home</a></li>
+                <li><a class="nav-link" href="#about">About</a></li>
+                <li><a class="nav-link" href="#products">Products</a></li>
+            </ul>
         </div>
-        
-        <div class="max-w-7xl mx-auto px-6 relative z-10 pt-20">
-            <div class="max-w-3xl">
-                <div class="flex items-center gap-2 mb-6">
-                    <span class="w-12 h-px bg-gold"></span>
-                    <span class="text-gold font-bold tracking-[0.3em] uppercase text-sm" data-key="hero-subline">Grown in Chaparda, Gujarat</span>
-                </div>
-                <h1 class="text-6xl md:text-8xl font-bold text-white mb-8 leading-[1.1]" id="hero-title">
-                    Nature's Nootropic, <br><span class="italic text-yellow-200">Purely Gir.</span>
-                </h1>
-                <p class="text-xl text-stone-200 mb-10 leading-relaxed max-w-xl" data-key="hero-desc">
-                    We are Gen-Z entrepreneurs merging the ancient wisdom of Gir’s soil with modern bio-hacking. Unlock peak performance with our organic products.
-                </p>
-                <div class="flex flex-wrap gap-5">
-                    <a href="#products" class="bg-gold text-white px-10 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition shadow-2xl" data-key="btn-shop">Shop Products</a>
-                    <a href="#about" class="glass text-stone-800 px-10 py-4 rounded-2xl font-bold text-lg hover:bg-white transition border border-white/40" data-key="nav-about">Our Story</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- About Us -->
-    <section id="about" class="py-24 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2 relative">
-                    <img src="images/story.jpeg" loading="lazy" class="rounded-[3rem] shadow-2xl relative z-10 border-8 border-stone-50" alt="Farmer Story">
-                    <div class="absolute -bottom-6 -right-6 glass p-6 rounded-2xl shadow-xl z-20 border border-forest/10">
-                        <p class="text-forest font-bold text-lg" data-key="about-badge">"6 Years of Research"</p>
-                        <p class="text-stone-500 text-xs uppercase tracking-widest">Innovation meets Roots</p>
-                    </div>
-                </div>
-                <div class="lg:w-1/2">
-                    <h2 class="text-4xl md:text-5xl font-bold text-stone-900 mb-8" data-key="about-title">Our Roots, <span class="text-forest">Your Health</span></h2>
-                    <div class="space-y-6 text-lg text-stone-600 leading-relaxed">
-                        <p data-key="about-p1">I am an MBA student, and my father has been a hardworking farmer for years. Our land used to grow traditional crops which were our identity.</p>
-                        <p data-key="about-p2">After 6 years of learning and experimenting, Gir Organic Mushrooms was born to create something healthy, pure, and modern.</p>
-                        <div class="bg-stone-50 p-6 rounded-2xl border-l-4 border-gold italic font-serif" data-key="about-quote">
-                            "This is not just a business—it's a mission. From Gir to your home."
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <a href="https://wa.me/918780982283" class="btn btn-forest ms-3">Order</a>
 
-    <!-- Products Section -->
-    <section id="products" class="py-24 bg-stone-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-stone-900" data-key="shop-title">Our Organic <span class="text-forest">Collection</span></h2>
-                <p class="text-stone-500 mt-4" data-key="shop-desc">Premium organic collection directly from our farm in Chaparda.</p>
-            </div>
+    </div>
+</div>
+</nav>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Lion's Mane Blend -->
-                <div class="group bg-white rounded-[3rem] p-4 shadow-xl border border-stone-100 transition hover:-translate-y-2">
-                    <div class="aspect-square overflow-hidden rounded-[2.5rem] mb-6">
-                        <img src="images/lion-mane.jpeg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1594315620301-02ab8373070c?q=80&w=800&auto=format&fit=crop'" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Lion's Mane Blend">
-                    </div>
-                    <div class="px-4 pb-4">
-                        <h3 class="text-2xl font-bold text-stone-900 mb-2" data-key="p-lions">Lion's Mane Blend</h3>
-                        <p class="text-stone-500 text-sm mb-6" data-key="p-lions-desc">Concentrated mushroom extract mixed with premium Arabica coffee.</p>
-                        <button class="w-full bg-forest text-white py-4 rounded-2xl font-bold hover:shadow-lg transition" data-key="btn-order">Order on WhatsApp</button>
-                    </div>
-                </div>
+<!-- Hero -->
+<section class="hero d-flex align-items-center" id="home">
+<div class="container hero-content">
+    <h1 class="display-3 fw-bold">
+        Nature's Nootropic<br>
+        <span style="color:#fde68a;">Purely Gir</span>
+    </h1>
+    <p class="lead mt-3">Premium organic mushroom products from Gir.</p>
 
-                <!-- Oyster Mushroom -->
-                <div class="group bg-white rounded-[3rem] p-4 shadow-xl border border-stone-100 transition hover:-translate-y-2">
-                    <div class="aspect-square overflow-hidden rounded-[2.5rem] mb-6">
-                        <img src="images/oyster.jpg.jpeg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1594315620301-02ab8373070c?q=80&w=800&auto=format&fit=crop'" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Oyster Mushroom">
-                    </div>
-                    <div class="px-4 pb-4">
-                        <h3 class="text-2xl font-bold text-stone-900 mb-2" data-key="p-oyster">Oyster Mushroom</h3>
-                        <p class="text-stone-500 text-sm mb-6" data-key="p-oyster-desc">Freshly harvested, protein-rich organic Oyster mushrooms.</p>
-                        <button class="w-full bg-forest text-white py-4 rounded-2xl font-bold hover:shadow-lg transition" data-key="btn-order">Order on WhatsApp</button>
-                    </div>
-                </div>
+    <a href="#products" class="btn btn-gold mt-3 me-3 px-4 py-2">Shop</a>
+    <a href="#about" class="btn btn-light mt-3 px-4 py-2">Story</a>
+</div>
+</section>
 
-                <!-- Milky Mushroom -->
-                <div class="group bg-white rounded-[3rem] p-4 shadow-xl border border-stone-100 transition hover:-translate-y-2">
-                    <div class="aspect-square overflow-hidden rounded-[2.5rem] mb-6">
-                        <img src="images/milky.jpg.jpeg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1594315620301-02ab8373070c?q=80&w=800&auto=format&fit=crop'" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Milky Mushroom">
-                    </div>
-                    <div class="px-4 pb-4">
-                        <h3 class="text-2xl font-bold text-stone-900 mb-2" data-key="p-milky">Milky Mushroom</h3>
-                        <p class="text-stone-500 text-sm mb-6" data-key="p-milky-desc">Meaty, premium Milky mushrooms grown in ideal Gir conditions.</p>
-                        <button class="w-full bg-forest text-white py-4 rounded-2xl font-bold hover:shadow-lg transition" data-key="btn-order">Order on WhatsApp</button>
-                    </div>
-                </div>
+<!-- About -->
+<section class="py-5 bg-white" id="about">
+<div class="container">
+<div class="row align-items-center">
 
-                <!-- Fertilizer -->
-                <div class="group bg-white rounded-[3rem] p-4 shadow-xl border border-stone-100 transition hover:-translate-y-2">
-                    <div class="aspect-square overflow-hidden rounded-[2.5rem] mb-6">
-                        <img src="images/fertilizer.jpg.jpeg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1594315620301-02ab8373070c?q=80&w=800&auto=format&fit=crop'" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Fertilizer">
-                    </div>
-                    <div class="px-4 pb-4">
-                        <h3 class="text-2xl font-bold text-stone-900 mb-2" data-key="p-fert">Mushroom Waste Fertilizer</h3>
-                        <p class="text-stone-500 text-sm mb-6" data-key="p-fert-desc">Organic waste compost, highly effective for soil enrichment.</p>
-                        <button class="w-full bg-forest text-white py-4 rounded-2xl font-bold hover:shadow-lg transition" data-key="btn-order">Order on WhatsApp</button>
-                    </div>
-                </div>
+<div class="col-md-6">
+    <img src="images/story.jpeg" class="img-fluid rounded-4 shadow">
+</div>
 
-                <!-- Moringa Powder -->
-                <div class="group bg-white rounded-[3rem] p-4 shadow-xl border border-stone-100 transition hover:-translate-y-2">
-                    <div class="aspect-square overflow-hidden rounded-[2.5rem] mb-6">
-                        <img src="images/moringa.jpg.jpeg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1594315620301-02ab8373070c?q=80&w=800&auto=format&fit=crop'" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Moringa Powder">
-                    </div>
-                    <div class="px-4 pb-4">
-                        <h3 class="text-2xl font-bold text-stone-900 mb-2" data-key="p-moringa">Moringa Powder</h3>
-                        <p class="text-stone-500 text-sm mb-6" data-key="p-moringa-desc">Pure superfood powder from our Moringa trees in Gir.</p>
-                        <button class="w-full bg-forest text-white py-4 rounded-2xl font-bold hover:shadow-lg transition" data-key="btn-order">Order on WhatsApp</button>
-                    </div>
-                </div>
+<div class="col-md-6">
+    <h2 class="fw-bold">Our Roots, Your Health</h2>
+    <p>I am an MBA student and my father is a farmer...</p>
+    <div class="p-3 bg-light rounded-3 fst-italic">
+        "This is not just a business—it's a mission."
+    </div>
+</div>
 
-                <!-- Cow Dung Cake -->
-                <div class="group bg-white rounded-[3rem] p-4 shadow-xl border border-stone-100 transition hover:-translate-y-2">
-                    <div class="aspect-square overflow-hidden rounded-[2.5rem] mb-6">
-                        <img src="images/Dung-Cake.jpeg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1594315620301-02ab8373070c?q=80&w=800&auto=format&fit=crop'" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Cow Dung Cake">
-                    </div>
-                    <div class="px-4 pb-4">
-                        <h3 class="text-2xl font-bold text-stone-900 mb-2" data-key="p-cow">Cow Dung Cake</h3>
-                        <p class="text-stone-500 text-sm mb-6" data-key="p-cow-desc">Pure desi Cow dung cakes for traditional and organic uses.</p>
-                        <button class="w-full bg-forest text-white py-4 rounded-2xl font-bold hover:shadow-lg transition" data-key="btn-order">Order on WhatsApp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+</div>
+</div>
+</section>
 
-    <!-- Commitment Grid -->
-    <section id="benefits" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16" data-key="benefits-title">Our <span class="italic text-forest">Commitment</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-gray-50 p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition group">
-                    <span class="text-4xl mb-6 block">🌿</span>
-                    <h3 class="text-xl font-bold mb-4" data-key="ben1-title">Pure Organic</h3>
-                    <p class="text-stone-500 text-sm" data-key="ben1-desc">100% Chemical-free growth process.</p>
-                </div>
-                <div class="bg-gray-50 p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition group">
-                    <span class="text-4xl mb-6 block">🐄</span>
-                    <h3 class="text-xl font-bold mb-4" data-key="ben2-title">Traditional Roots</h3>
-                    <p class="text-stone-500 text-sm" data-key="ben2-desc">Leveraging the wisdom of Gir's farmers.</p>
-                </div>
-                <div class="bg-gray-50 p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition group">
-                    <span class="text-4xl mb-6 block">♻️</span>
-                    <h3 class="text-xl font-bold mb-4" data-key="ben3-title">Zero Waste</h3>
-                    <p class="text-stone-500 text-sm" data-key="ben3-desc">Transforming waste into soil-building gold.</p>
-                </div>
-                <div class="bg-gray-50 p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition group">
-                    <span class="text-4xl mb-6 block">🎓</span>
-                    <h3 class="text-xl font-bold mb-4" data-key="ben4-title">MBA Innovation</h3>
-                    <p class="text-stone-500 text-sm" data-key="ben4-desc">Systematic quality and data-led farming.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Products -->
+<section class="py-5 bg-light" id="products">
+<div class="container">
 
-    <!-- Footer -->
-    <footer class="bg-stone-900 text-white pt-24 pb-12">
-        <div class="max-w-7xl mx-auto px-6 text-center md:text-left">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                <div>
-                    <span class="text-2xl font-bold uppercase tracking-tighter text-white">GIR <span class="text-forest">ORGANIC</span></span>
-                    <p class="mt-4 text-stone-400 italic" data-key="footer-quote">"Bridge between Gir's purity and modern health."</p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-key="f-links">Quick Links</h4>
-                    <ul class="space-y-2 text-stone-400">
-                        <li><a href="#about" class="hover:text-gold">Our Journey</a></li>
-                        <li><a href="#products" class="hover:text-gold">Products</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4" data-key="f-contact">Contact</h4>
-                    <p class="text-stone-400">📍 Chaparda, Junagadh</p>
-                    <p class="text-stone-400">📧 shreyaspaneliya232@gmail.com</p>
-                    <p class="text-stone-400">📞 +91 87809 82283</p>
-                </div>
-            </div>
-            <div class="pt-8 border-t border-white/10 text-stone-500 text-sm">
-                &copy; 2026 Gir Organic Mushrooms. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
+<h2 class="text-center fw-bold mb-5">Our Collection</h2>
 
-    <script>
-        const translations = {
-            en: {
-                'nav-home': 'Home',
-                'nav-about': 'About Us',
-                'nav-shop': 'Products',
-                'nav-benefits': 'Commitment',
-                'btn-order': 'Order Now',
-                'hero-subline': 'Grown in Chaparda, Gujarat',
-                'hero-title': 'Nature\'s Nootropic, <br><span class="italic text-yellow-200">Purely Gir.</span>',
-                'hero-desc': 'We are Gen-Z entrepreneurs merging the ancient wisdom of Gir’s soil with modern bio-hacking. Unlock peak performance with our organic products.',
-                'btn-shop': 'Shop Products',
-                'nav-about': 'Our Story',
-                'about-badge': '6 Years of Research',
-                'about-title': 'Our Roots, <span class="text-forest">Your Health</span>',
-                'about-p1': 'I am an MBA student, and my father has been a hardworking farmer for years. Our land used to grow traditional crops which were our identity.',
-                'about-p2': 'After 6 years of learning and experimenting, Gir Organic Mushrooms was born to create something healthy, pure, and modern.',
-                'about-quote': '"This is not just a business—it\'s a mission. From Gir to your home."',
-                'shop-title': 'Our Organic <span class="text-forest">Collection</span>',
-                'shop-desc': 'Premium organic collection directly from our farm in Chaparda.',
-                'p-lions': 'Lion\'s Mane Blend',
-                'p-lions-desc': 'Concentrated mushroom extract mixed with premium Arabica coffee.',
-                'p-oyster': 'Oyster Mushroom',
-                'p-oyster-desc': 'Freshly harvested, protein-rich organic Oyster mushrooms.',
-                'p-milky': 'Milky Mushroom',
-                'p-milky-desc': 'Meaty, premium Milky mushrooms grown in ideal Gir conditions.',
-                'p-fert': 'Waste Fertilizer',
-                'p-fert-desc': 'Organic waste compost, highly effective for soil enrichment.',
-                'p-moringa': 'Moringa Powder',
-                'p-moringa-desc': 'Pure superfood powder from our Moringa trees in Gir.',
-                'p-cow': 'Cow Dung Cake',
-                'p-cow-desc': 'Pure desi Cow dung cakes for traditional and organic uses.',
-                'btn-order': 'Order on WhatsApp',
-                'benefits-title': 'Our <span class="italic text-forest">Commitment</span>',
-                'ben1-title': 'Pure Organic',
-                'ben1-desc': '100% Chemical-free growth process.',
-                'ben2-title': 'Traditional Roots',
-                'ben2-desc': 'Leveraging the wisdom of Gir\'s farmers.',
-                'ben3-title': 'Zero Waste',
-                'ben3-desc': 'Transforming waste into soil-building gold.',
-                'ben4-title': 'MBA Innovation',
-                'ben4-desc': 'Systematic quality and data-led farming.',
-                'footer-quote': '"Bridge between Gir\'s purity and modern health."',
-                'f-links': 'Quick Links',
-                'f-contact': 'Contact'
-            },
-            gu: {
-                'nav-home': 'હોમ',
-                'nav-about': 'અમારા વિશે',
-                'nav-shop': 'પ્રોડક્ટ્સ',
-                'nav-benefits': 'પ્રતિબદ્ધતા',
-                'btn-order': 'ઓર્ડર કરો',
-                'hero-subline': 'ચપરડા (ગીર) માં ઉગાડવામાં આવે છે',
-                'hero-title': 'કુદરતી શક્તિ, <br><span class="italic text-yellow-200">ગીરની શુદ્ધતા.</span>',
-                'hero-desc': 'અમે Gen-Z આંત્રપ્રિન્યોર્સ છીએ જે ગીરની માટીની પ્રાચીન સમજ અને આધુનિક વિજ્ઞાનનો સમન્વય કરીએ છીએ.',
-                'btn-shop': 'વેચાણ જુઓ',
-                'nav-about': 'અમારી સફર',
-                'about-badge': '૬ વર્ષનું સંશોધન',
-                'about-title': 'અમારા મૂળ, <span class="text-forest">તમારું સ્વાસ્થ્ય</span>',
-                'about-p1': 'હું એક MBA સ્ટુડન્ટ છું અને મારા પપ્પા વર્ષોથી એક ખેડૂત તરીકે કામ કરી રહ્યા છે. અમારી જમીન પર પરંપરાગત ખેતી થતી હતી જે અમારી ઓળખ હતી.',
-                'about-p2': '૬ વર્ષના શિક્ષણ અને પ્રયોગો પછી જન્મ્યું — Gir Organic Mushrooms, જે શુદ્ધ અને આધુનિક ખેતીનું પ્રતીક છે.',
-                'about-quote': '"આ માત્ર એક બિઝનેસ નથી — આ એક મિશન છે. ગીરથી તમારા ઘર સુધી."',
-                'shop-title': 'અમારું ઓર્ગેનિક <span class="text-forest">કલેક્શન</span>',
-                'shop-desc': 'ચપરડાના ખેતરેથી સીધું તમારા ઘર સુધી મોકલવામાં આવે છે.',
-                'p-lions': 'Lion\'s Mane બ્લેન્ડ',
-                'p-lions-desc': 'પ્રીમિયમ કોફી અને મશરૂમ અર્કનું ખાસ મિશ્રણ.',
-                'p-oyster': 'ઓયસ્ટર મશરૂમ',
-                'p-oyster-desc': 'તાજા અને શુદ્ધ ઓર્ગેનિક ઓયસ્ટર મશરૂમ્સ, જે પ્રોટીનથી ભરપૂર છે.',
-                'p-milky': 'મિલ્કી મશરૂમ',
-                'p-milky-desc': 'ગીરના વાતાવરણમાં કુદરતી રીતે ઉછરેલા પ્રીમિયમ મિલ્કી મશરૂમ્સ.',
-                'p-fert': 'મશરૂમ વેસ્ટ ખાતર',
-                'p-fert-desc': 'જમીનની ફળદ્રુપતા વધારવા માટે શ્રેષ્ઠ ઓર્ગેનિક મશરૂમ વેસ્ટ ખાતર.',
-                'p-moringa': 'સરગવા પાવડર',
-                'p-moringa-desc': 'ગીરના સરગવાના વૃક્ષોમાંથી બનેલો શુદ્ધ અને હેલ્ધી પાવડર.',
-                'p-cow': 'છાણના છાણા',
-                'p-cow-desc': 'ગીરની દેશી ગાયના છાણમાંથી બનેલા શુદ્ધ અને પરંપરાગત છાણા.',
-                'btn-order': 'વોટ્સએપ પર ઓર્ડર કરો',
-                'benefits-title': 'અમારી <span class="italic text-forest">પ્રતિબદ્ધતા</span>',
-                'ben1-title': 'શુદ્ધ ઓર્ગેનિક',
-                'ben1-desc': '૧૦૦% કેમિકલ મુક્ત ખેતી પદ્ધતિ.',
-                'ben2-title': 'પરંપરાગત મૂળ',
-                'ben2-desc': 'ગીરના ખેડૂતોની પ્રાચીન સમજનો ઉપયોગ.',
-                'ben3-title': 'ઝીરો વેસ્ટ',
-                'ben3-desc': 'કચરામાંથી સોના જેવું ખાતર બનાવવાની પ્રક્રિયા.',
-                'ben4-title': 'MBA ઇનોવેશન',
-                'ben4-desc': 'ડેટા અને સિસ્ટમ આધારિત આધુનિક ખેતી.',
-                'footer-quote': '"ગીરની શુદ્ધતા અને આધુનિક સ્વાસ્થ્યનો સેતુ."',
-                'f-links': 'ઝડપી લિંક્સ',
-                'f-contact': 'સંપર્ક'
-            }
-        };
+<div class="row g-4">
 
-        let currentLang = 'en';
+<!-- Product -->
+<div class="col-md-4">
+<div class="product-card bg-white p-3 shadow">
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'gu' : 'en';
-            document.getElementById('current-lang').innerText = currentLang === 'en' ? 'English' : 'Gujarati';
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (translations[currentLang][key]) {
-                    if (key.includes('title') || key === 'hero-title' || key === 'shop-title' || key === 'benefits-title') {
-                        el.innerHTML = translations[currentLang][key];
-                    } else {
-                        el.innerText = translations[currentLang][key];
-                    }
-                }
-            });
-            document.getElementById('hero-title').innerHTML = translations[currentLang]['hero-title'];
-        }
+<div class="product-img mb-3">
+<img src="images/lion-mane.jpeg" class="img-fluid">
+</div>
 
-        window.onscroll = function() {
-            const nav = document.getElementById('main-nav');
-            if (window.pageYOffset > 50) {
-                nav.classList.remove('py-4'); nav.classList.add('py-2');
-            } else {
-                nav.classList.remove('py-2'); nav.classList.add('py-4');
-            }
-        };
-    </script>
+<h5>Lion's Mane</h5>
+<p>Premium mushroom coffee blend</p>
+
+<button class="btn btn-forest w-100">Order</button>
+
+</div>
+</div>
+
+<!-- Repeat for others -->
+
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer py-5">
+<div class="container text-center">
+    <h4>GIR ORGANIC</h4>
+    <p>Chaparda, Junagadh</p>
+    <p>📞 +91 87809 82283</p>
+</div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
